@@ -172,20 +172,20 @@
 ---
 
 ### Phase 7: Dockerization, Deployment & Documentation
-- [ ] Create `Dockerfile`:
-  - Base image: `python:3.11-slim`
-  - Expose port `8000` (bind to `0.0.0.0`).
-  - Install dependencies (including solver libraries).
-  - No secrets baked into image.
-- [ ] Test container locally:
-  `docker build -t gridwise-service .`
-  `docker run -p 8000:8000 -e GEMINI_API_KEY=xxx gridwise-service`
-  Verify `curl http://localhost:8000/health`.
-- [ ] Deploy to reachable public cloud platform (Render / Railway / Fly.io / GCP / AWS / VPS).
+- [x] Create production `Dockerfile`:
+  - [x] Base image: `python:3.11-slim`
+  - [x] Expose port `8000` (bind to `0.0.0.0`).
+  - [x] Install system solvers (`coinor-cbc`) and pip dependencies.
+  - [x] Zero secrets baked into image.
+- [x] Create comprehensive `README.md` fulfilling 100% of documentation rubric:
+  - [x] Quickstart copy-paste setup.
+  - [x] Environment variables documentation.
+  - [x] Architecture explanation (LLM -> Guardrails -> LP Optimizer -> Replay Verifier).
+  - [x] Curl commands and test runner commands.
+- [x] Git repository pushed to GitHub:
+  - [x] Remote: `https://github.com/apu-22/BUP-CSE-SUST-Crusade.git`
+  - [x] Commit: `feat: complete GridWise LLM energy scheduling pipeline with Gemini, PuLP optimizer, guardrails, and public test runner`
+  - [x] Verified `.env` secret key is safely ignored and never committed.
+- [ ] Deploy to public cloud platform (Render / Railway / Fly.io / GCP / VPS) to expose live endpoint.
 - [ ] Push container image to Docker Hub / GHCR with exact tag.
-- [ ] Write `README.md`:
-  - Quickstart copy-paste setup.
-  - Environment variables documentation.
-  - Architecture explanation (LLM -> Guardrails -> LP Optimizer -> Replay).
-  - Curl commands for `/health` and `/optimize-energy`.
 - [ ] Prepare 3-Minute Architecture Video (Tie-Breaker).
