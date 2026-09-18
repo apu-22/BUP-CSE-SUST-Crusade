@@ -164,14 +164,16 @@ P95 latency:     2.86s
 
 ## 🐳 Docker Fallback Deployment
 
-### Build Docker Image
+### 🐳 Pull from Docker Hub & Run (Recommended)
 ```bash
-docker build -t gridwise-service .
+docker pull apurayhan/gridwise:latest
+docker run -d -p 8000:8000 -e GEMINI_API_KEY="your_api_key_here" --name gridwise apurayhan/gridwise:latest
 ```
 
-### Run Docker Container
+### Build & Run Locally (Alternative)
 ```bash
-docker run -d -p 8000:8000 -e GEMINI_API_KEY="your_api_key_here" --name gridwise gridwise-service
+docker build -t apurayhan/gridwise:latest .
+docker run -d -p 8000:8000 -e GEMINI_API_KEY="your_api_key_here" --name gridwise apurayhan/gridwise:latest
 ```
 
 ### Verify Container Health
