@@ -1,0 +1,17 @@
+services:
+  gridwise-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: gridwise-api:latest
+    container_name: gridwise-container
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+      - GEMINI_MODEL=${GEMINI_MODEL:-gemini-3.5-flash-lite}
+      - PORT=8000
+      - HOST=0.0.0.0
+    env_file:
+      - .env
